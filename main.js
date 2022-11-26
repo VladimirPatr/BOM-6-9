@@ -1,6 +1,6 @@
 
-const URLfresh = 'https://newsapi.org/v2/top-headlines?';
-const URLseach = 'https://newsapi.org/v2/everything?';
+// const URLfresh = 'https://newsapi.org/v2/top-headlines?';
+// const URLseach = 'https://newsapi.org/v2/everything?';
 // const KEY = 18b36daf782e4f12a128c47acfedcb99;
 const select = document.querySelector('.header__select');
 const freshContent = document.querySelector('.search-fresh__content');
@@ -92,7 +92,7 @@ const fetchRequest = async (postfix, URL, length, {
 // функция получения свежих новостей при загрузке
 const initFresh = (country) =>{
   return Promise.all([
-    fetchRequest(country, URLfresh, 8,{
+    fetchRequest(country, 'https://newsapi.org/v2/top-headlines?', 8,{
             callback: renderNews,
         }),
     ]);
@@ -109,10 +109,10 @@ initFresh(country).then(data=>{
 // функция отправки запроса на сервер для всех новостей
 const init = (country, search) =>{
   return Promise.all([
-    fetchRequest(country, URLfresh, 4,{
+    fetchRequest(country, 'https://newsapi.org/v2/top-headlines?', 4,{
             callback: renderNews,
         }),
-    fetchRequest(search, URLseach, 8, {
+    fetchRequest(search, 'https://newsapi.org/v2/everything?', 8, {
             callback: renderNews,
         })
 
